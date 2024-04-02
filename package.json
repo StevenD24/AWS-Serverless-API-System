@@ -18,6 +18,8 @@
     },
     "devDependencies": {
         "@types/node": "^20.12.2",
-        "serverless-iam-roles-per-function": "^3.2.0"
+        "serverless-iam-roles-per-function": "^3.2.0",
+        "serverless-plugin-typescript": "^2.1.5",
+        "typescript": "^5.4.3"
     }
 }
