@@ -20,7 +20,7 @@ const getPost = async (event: any) => {
 
         console.log({ Item });
         response.body = JSON.stringify({
-            message: "Successfully retrieved post",
+            message: "Successfully retrieved post.",
             data: (Item) ? unmarshall(Item) : {},
             rawData: Item,
         });
@@ -49,7 +49,7 @@ const createPost = async (event: any) => {
         const createResult = await db.send(new PutItemCommand(params));
 
         response.body = JSON.stringify({
-            message: "Successfully created post",
+            message: "Successfully created post.",
             createResult,
         });
     } catch (e) {
@@ -96,7 +96,7 @@ const updatePost = async (event: any) => {
         const updateResult = await db.send(new UpdateItemCommand(params));
 
         response.body = JSON.stringify({
-            message: "Successfully updated post",
+            message: "Successfully updated post.",
             updateResult,
         });
     } catch (e) {
@@ -123,7 +123,7 @@ const deletePost = async (event: any) => {
         const deleteResult = await db.send(new DeleteItemCommand(params));
 
         response.body = JSON.stringify({
-            message: "Successfully deleted post",
+            message: "Successfully deleted post.",
             deleteResult,
         });
     } catch (e) {
@@ -137,4 +137,36 @@ const deletePost = async (event: any) => {
     }
 
     return response;
+};
+
+const getAllPosts = async () => {
+    const response: { statusCode: number, body?: string } = { statusCode: 200 };
+
+    try {
+        const { Items } = await db.send(new ScanCommand({ TableName: process.env.DYNAMODB_TABLE_NAME } ));
+
+        response.body = JSON.stringify({
+            message: "Successfully retrieved all posts.",
+            data: Items.map((item: any) => unmarshall(item)),
+            Items,
+        });
+    } catch (e) {
+        console.log(e);
+        response.statusCode = 500;
+        response.body = JSON.stringify({
+            message: "Failed to retrieve posts.",
+            errorMsg: e.message,
+            errorStack: e.stack,
+        });
+    }
+
+    return response;
+};
+
+module.exports = {
+    getPost,
+    createPost,
+    updatePost,
+    deletePost,
+    getAllPosts,
 };
