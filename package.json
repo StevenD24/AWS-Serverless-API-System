@@ -4,16 +4,17 @@
     "description": "DynamoDB CRUD API using API Gateway and AWS Lambda",
     "main": "index.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
     "author": "Steven Duong",
     "license": "ISC",
     "dependencies": {
-      "@aws-sdk/client-dynamodb": "^3.18.0",
-      "@aws-sdk/util-dynamodb": "^3.18.0"
+        "@aws-sdk/client-dynamodb": "^3.540.0",
+        "@aws-sdk/util-dynamodb": "^3.540.0"
     },
     "devDependencies": {
-      "serverless-iam-roles-per-function": "^3.2.0"
+        "@types/node": "^20.12.2",
+        "serverless-iam-roles-per-function": "^3.2.0"
     }
-  }
+}
