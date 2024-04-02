@@ -1,14 +1,15 @@
-const db = require("./db");
-const {
-    GetItemCommand,
-    PutItemCommand,
-    DeleteItemCommand,
-    UpdateItemCommand,
-    ScanCommand,
-} = require("@aws-sdk/client-dynamodb");
-const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
+import { Handler } from 'aws-lambda';
+import db from "./db";
+import { 
+    GetItemCommand, 
+    PutItemCommand, 
+    DeleteItemCommand, 
+    UpdateItemCommand, 
+    ScanCommand 
+} from "@aws-sdk/client-dynamodb";
+import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
-const getPost = async (event: any) => {
+const getPost: Handler = async (event: any) => {
     const response: { statusCode: number, body?: string } = { statusCode: 200 };
 
     try {
@@ -24,7 +25,7 @@ const getPost = async (event: any) => {
             data: (Item) ? unmarshall(Item) : {},
             rawData: Item,
         });
-    } catch (e) {
+    } catch (e: any) {
         console.log(e);
         response.statusCode = 500;
         response.body = JSON.stringify({
@@ -37,7 +38,7 @@ const getPost = async (event: any) => {
     return response;
 };
 
-const createPost = async (event: any) => {
+const createPost: Handler = async (event: any) => {
     const response: { statusCode: number, body?: string } = { statusCode: 200 };
 
     try {
@@ -52,7 +53,7 @@ const createPost = async (event: any) => {
             message: "Successfully created post.",
             createResult,
         });
-    } catch (e) {
+    } catch (e: any) {
         console.log(e);
         response.statusCode = 500;
         response.body = JSON.stringify({
@@ -65,7 +66,7 @@ const createPost = async (event: any) => {
     return response;
 };
 
-const updatePost = async (event: any) => {
+const updatePost: Handler = async (event: any) => {
     const response: { statusCode: number, body?: string } = { statusCode: 200 };
 
     try {
@@ -99,7 +100,7 @@ const updatePost = async (event: any) => {
             message: "Successfully updated post.",
             updateResult,
         });
-    } catch (e) {
+    } catch (e: any) {
         console.log(e);
         response.statusCode = 500;
         response.body = JSON.stringify({
@@ -112,7 +113,7 @@ const updatePost = async (event: any) => {
     return response;
 };
 
-const deletePost = async (event: any) => {
+const deletePost: Handler = async (event: any) => {
     const response: { statusCode: number, body?: string } = { statusCode: 200 };
 
     try {
@@ -126,7 +127,7 @@ const deletePost = async (event: any) => {
             message: "Successfully deleted post.",
             deleteResult,
         });
-    } catch (e) {
+    } catch (e: any) {
         console.log(e);
         response.statusCode = 500;
         response.body = JSON.stringify({
@@ -139,7 +140,7 @@ const deletePost = async (event: any) => {
     return response;
 };
 
-const getAllPosts = async () => {
+const getAllPosts: Handler = async () => {
     const response: { statusCode: number, body?: string } = { statusCode: 200 };
 
     try {
@@ -147,10 +148,10 @@ const getAllPosts = async () => {
 
         response.body = JSON.stringify({
             message: "Successfully retrieved all posts.",
-            data: Items.map((item: any) => unmarshall(item)),
+            data: Items!.map((item: any) => unmarshall(item)),
             Items,
         });
-    } catch (e) {
+    } catch (e: any) {
         console.log(e);
         response.statusCode = 500;
         response.body = JSON.stringify({
@@ -163,10 +164,4 @@ const getAllPosts = async () => {
     return response;
 };
 
-module.exports = {
-    getPost,
-    createPost,
-    updatePost,
-    deletePost,
-    getAllPosts,
-};
+export { getPost, createPost, updatePost, deletePost, getAllPosts };
