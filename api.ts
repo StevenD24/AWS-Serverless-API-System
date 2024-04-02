@@ -154,7 +154,7 @@ const getAllPosts = async () => {
         console.log(e);
         response.statusCode = 500;
         response.body = JSON.stringify({
-            message: "Failed to retrieve posts.",
+            message: "Failed to retrieve all posts.",
             errorMsg: e.message,
             errorStack: e.stack,
         });
