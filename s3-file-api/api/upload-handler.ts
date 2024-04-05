@@ -7,12 +7,12 @@ const s3 = new AWS.S3();
 // bucket name env var will be set in serverless.yml file
 const BUCKET_NAME = process.env.FILE_UPLOAD_BUCKET_NAME;
 
-export const lambdaHandler: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult>=> {
+export const lambdaHandler: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
 
-    const response: { isBase64Encoded:boolean, statusCode: number, body?: string } = { 
+    const response: { isBase64Encoded: boolean, statusCode: number, body?: string } = {
         isBase64Encoded: false,
         statusCode: 200,
-    }
+    };
     console.log(event);
 
     try {
