@@ -6,7 +6,7 @@ import {
 } from "@aws-sdk/client-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
 
-export const lambdaHandler: Handler = async (): Promise<APIGatewayProxyResult>=> {
+export const lambdaHandler: Handler = async (): Promise<APIGatewayProxyResult> => {
     const response: { statusCode: number, body?: string } = { statusCode: 200 };
 
     try {
