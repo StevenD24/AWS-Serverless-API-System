@@ -21,7 +21,7 @@ plugins:
 
 functions:
   getPost:
-    handler: api/get-post.lambdaHandler
+    handler: api/dynamodb/get-post.lambdaHandler
     name: get-post
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -36,7 +36,7 @@ functions:
           - dynamodb:GetItem
         Resource: !GetAtt PostsTable.Arn
   createPost:
-    handler: api/create-post.lambdaHandler
+    handler: api/dynamodb/create-post.lambdaHandler
     name: create-post
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -51,7 +51,7 @@ functions:
           - dynamodb:PutItem
         Resource: !GetAtt PostsTable.Arn
   updatePost:
-    handler: api/update-post.lambdaHandler
+    handler: api/dynamodb/update-post.lambdaHandler
     name: update-post
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -66,7 +66,7 @@ functions:
           - dynamodb:UpdateItem
         Resource: !GetAtt PostsTable.Arn
   deletePost:
-    handler: api/delete-post.lambdaHandler
+    handler: api/dynamodb/delete-post.lambdaHandler
     name: delete-post
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -81,7 +81,7 @@ functions:
           - dynamodb:DeleteItem
         Resource: !GetAtt PostsTable.Arn
   getAllPosts:
-    handler: api/get-all-posts.lambdaHandler
+    handler: api/dynamodb/get-all-posts.lambdaHandler
     name: get-all-posts
     memorySize: 128 # mb
     timeout: 5 # seconds

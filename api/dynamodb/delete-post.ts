@@ -1,12 +1,12 @@
 import { Handler } from 'aws-lambda';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import db from "../db";
+import db from "../../db";
 import { 
-    GetItemCommand
+    DeleteItemCommand
 } from "@aws-sdk/client-dynamodb";
-import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
+import { marshall } from "@aws-sdk/util-dynamodb";
 
-export const lambdaHandler: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const lambdaHandler: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult>=> {
     const response: { statusCode: number, body?: string } = { statusCode: 200 };
 
     try {
@@ -14,19 +14,17 @@ export const lambdaHandler: Handler = async (event: APIGatewayProxyEvent): Promi
             TableName: process.env.DYNAMODB_TABLE_NAME,
             Key: marshall({ postId: event.pathParameters!.postId }),
         };
-        const { Item } = await db.send(new GetItemCommand(params));
+        const deleteResult = await db.send(new DeleteItemCommand(params));
 
-        console.log({ Item });
         response.body = JSON.stringify({
-            message: "Successfully retrieved post.",
-            data: (Item) ? unmarshall(Item) : {},
-            rawData: Item,
+            message: "Successfully deleted post.",
+            deleteResult,
         });
     } catch (e: any) {
         console.log(e);
         response.statusCode = 500;
         response.body = JSON.stringify({
-            message: "Failed to get post.",
+            message: "Failed to delete post.",
             errorMsg: e.message,
             errorStack: e.stack,
         });
