@@ -13,24 +13,18 @@ export const lambdaHandler: Handler = async (event: APIGatewayProxyEvent): Promi
         isBase64Encoded: false,
         statusCode: 200,
     }
-    console.log(event);
 
     try {
-        const parsedBody = JSON.parse(event.body);
-        const base64File = parsedBody.file;
-        const decodedFile = Buffer.from(base64File.replace(/^data:image\/\w+;base64,/, ""), "base64");
         const params = {
             Bucket: BUCKET_NAME,
-            Key: parsedBody.fileKey,
-            Body: decodedFile,
-            ContentType: "image/jpeg",
-        };
-        const uploadResult = await s3.upload(params).promise();
+            Key: decodeURIComponent(event.pathParameters.fileKey),
+        }
+        const deleteObject = await s3.deleteObject(params).promise();
+        response.body = JSON.stringify({ message: "Successfull deleted file from S3.", deleteObject });
 
-        response.body = JSON.stringify({ message: "Successfully uploaded file to S3", uploadResult });
-    } catch (e) {
-        console.error("Failed to upload file: ", e);
-        response.body = JSON.stringify({ message: "File failed to upload.", errorMessage: e });
+    } catch (e: any) {
+        console.error(e);
+        response.body = JSON.stringify({ message: "Failed to delete file.", errorMessage: e });
         response.statusCode = 500;
     }
 
