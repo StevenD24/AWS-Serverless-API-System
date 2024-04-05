@@ -12,6 +12,7 @@ Designed with scalability, security, and ease of maintenance at its core, it fea
 - **Serverless Framework**: Utilizes the Serverless Framework for easy deployment and management.
 - **S3 Object Store**: Supports upload, retrieve, and manage files in an S3 bucket directly through the APIs.
 - **CI/CD with GitHub Actions**: Automated workflows for continuous integration and continuous deployment.
+- **TypeScript with Node.js on AWS**: Manual integration of TypeScript with plugins to allow modern code to run on AWS Lambda.
 
 ## Dependencies Overview
 
