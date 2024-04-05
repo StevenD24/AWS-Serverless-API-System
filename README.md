@@ -13,6 +13,26 @@ Designed with scalability, security, and ease of maintenance at its core, it fea
 - **S3 Object Store**: Supports upload, retrieve, and manage files in an S3 bucket directly through the APIs.
 - **CI/CD with GitHub Actions**: Automated workflows for continuous integration and continuous deployment.
 
+## Dependencies Overview
+
+This project utilizes AWS services, specifically DynamoDB, through AWS Lambda and API Gateway, facilitated by a set of dependencies outlined below.
+
+### Runtime Dependencies
+
+- **@aws-sdk/client-dynamodb** - Enables interaction with DynamoDB for CRUD operations.
+- **@aws-sdk/util-dynamodb** - Provides utility functions for easier DynamoDB data manipulation.
+- **@types/aws-lambda** - Type definitions for AWS Lambda, aiding in function development.
+- **aws-sdk** - Amazon Web Services SDK for JavaScript, allowing AWS service interactions.
+- **serverless-dynamodb-local** - Facilitates local DynamoDB emulation for development and testing.
+
+### Development Dependencies
+
+- **@types/node** - Type definitions for Node.js.
+- **serverless-iam-roles-per-function** - Enables granular IAM role definitions at the Lambda function level.
+- **serverless-offline** - Simulates AWS Lambda and API Gateway locally for development.
+- **serverless-plugin-typescript** - Compiles TypeScript projects in Serverless applications.
+- **typescript** - A typed superset of JavaScript that compiles to plain JavaScript, enhancing development.
+
 ## Requirements
 
 - AWS Account
