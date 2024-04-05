@@ -11,7 +11,8 @@
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "rootDir": "./" // This line added to set the root directory
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"] // You can also exclude the 'dist' directory
 }

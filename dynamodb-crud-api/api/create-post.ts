@@ -1,6 +1,6 @@
 import { Handler } from 'aws-lambda';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import db from "../../db";
+import db from "../db";
 import { 
     PutItemCommand
 } from "@aws-sdk/client-dynamodb";
