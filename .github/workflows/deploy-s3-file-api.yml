@@ -27,6 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./s3-file-api
 
     - name: serverless deploy
       uses: serverless/github-action@master

@@ -27,6 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./dynamodb-crud-api
 
     - name: serverless deploy
       uses: serverless/github-action@master
