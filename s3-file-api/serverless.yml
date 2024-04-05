@@ -6,7 +6,6 @@ provider:
   stage: dev
   region: us-west-1
   environment:
-    DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
     FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileBucketName}
 
 custom:
