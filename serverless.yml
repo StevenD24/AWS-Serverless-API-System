@@ -7,9 +7,11 @@ provider:
   region: us-west-1
   environment:
     DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
+    FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileBucketName}
 
 custom:
   postsTableName: posts-table--${self:provider.stage}
+  fileBucketName: s3-file-bucket--${self:provider.stage}
 
 plugins:
   - serverless-iam-roles-per-function
@@ -93,9 +95,59 @@ functions:
         Action:
           - dynamodb:Scan
         Resource: !GetAtt PostsTable.Arn
+  s3FileUploader:
+    handler: api/s3/upload-handler.lambdaHandler
+    name: s3-file-uploader
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events: 
+      - http:
+          path: file
+          method: POST
+          cors: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+         - "s3:Put*"
+        Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
+  s3FileGet:
+    handler: api/s3/get-handler.lambdaHandler
+    name: s3-file-get
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events: 
+      - http:
+          path: file/{fileKey}
+          method: GET
+          cors: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+         - "s3:Get*"
+        Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
+  s3FileDelete:
+    handler: api/s3/delete-handler.lambdaHandler
+    name: s3-file-delete
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events: 
+      - http:
+          path: file/{fileKey}
+          method: DELETE
+          cors: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+         - "s3:DeleteObject"
+        Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
 
 resources:
   Resources:
+    FileBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.fileBucketName}
+        AccessControl: Private
     PostsTable:
       Type: AWS::DynamoDB::Table
       Properties:
