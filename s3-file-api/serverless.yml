@@ -1,0 +1,74 @@
+service: s3-file-api
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: dev
+  region: us-west-1
+  environment:
+    DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
+    FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileBucketName}
+
+custom:
+  fileBucketName: s3-file-bucket--${self:provider.stage}
+
+plugins:
+  - serverless-iam-roles-per-function
+  - serverless-plugin-typescript
+  - serverless-dynamodb-local
+  - serverless-offline
+
+functions:
+  s3FileUploader:
+    handler: s3-file-api/api/upload-handler.lambdaHandler
+    name: s3-file-uploader
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events: 
+      - http:
+          path: file
+          method: POST
+          cors: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+         - "s3:Put*"
+        Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
+  s3FileGet:
+    handler: s3-file-api/api/get-handler.lambdaHandler
+    name: s3-file-get
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events: 
+      - http:
+          path: file/{fileKey}
+          method: GET
+          cors: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+         - "s3:Get*"
+        Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
+  s3FileDelete:
+    handler: s3-file-api/api/delete-handler.lambdaHandler
+    name: s3-file-delete
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events: 
+      - http:
+          path: file/{fileKey}
+          method: DELETE
+          cors: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+         - "s3:DeleteObject"
+        Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
+
+resources:
+  Resources:
+    FileBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.fileBucketName}
+        AccessControl: Private

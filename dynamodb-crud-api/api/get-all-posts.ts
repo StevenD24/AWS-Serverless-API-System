@@ -1,6 +1,6 @@
 import { Handler } from 'aws-lambda';
 import { APIGatewayProxyResult } from 'aws-lambda';
-import db from "../db";
+import db from "../../db";
 import { 
     ScanCommand
 } from "@aws-sdk/client-dynamodb";
