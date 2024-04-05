@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 's3-file-api/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
