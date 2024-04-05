@@ -1,0 +1,27 @@
+{
+    "name": "dynamodb-crud-api-gateway",
+    "version": "1.0.0",
+    "description": "DynamoDB CRUD API using API Gateway and AWS Lambda",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc-w",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Steven Duong",
+    "license": "ISC",
+    "dependencies": {
+        "@aws-sdk/client-dynamodb": "^3.540.0",
+        "@aws-sdk/util-dynamodb": "^3.540.0",
+        "@types/aws-lambda": "^8.10.136",
+        "aws-sdk": "^2.1590.0",
+        "serverless-dynamodb-local": "^0.2.40"
+    },
+    "devDependencies": {
+        "@types/node": "^20.12.2",
+        "serverless-iam-roles-per-function": "^3.2.0",
+        "serverless-offline": "^13.3.3",
+        "serverless-plugin-typescript": "^2.1.5",
+        "typescript": "^5.4.3"
+    }
+}
