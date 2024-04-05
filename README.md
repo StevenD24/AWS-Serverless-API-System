@@ -1,4 +1,4 @@
-# Serverless DynamoDB API with AWS Lambda and API Gateway
+# Serverless Cloud APIs: Integrated AWS Lambda, S3, DynamoDB, and API Gateway
 
 ## Overview
 
