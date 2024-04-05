@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./deploy-s3-file-api
+      working-directory: ./s3-file-api
 
     - name: Serverless Deploy
       run: npx serverless deploy
