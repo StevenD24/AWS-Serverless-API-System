@@ -10,11 +10,18 @@ provider:
 
 custom:
   postsTableName: posts-table--${self:provider.stage}
+  serverless-dynamodb:
+    stages:
+      - dev
+    start:
+      migrate: true
+  serverless-offline:
+    resourceRoutes: true # HTTP proxy
 
 plugins:
   - serverless-iam-roles-per-function
   - serverless-plugin-typescript
-  - serverless-dynamodb-local
+  - serverless-dynamodb
   - serverless-offline
 
 functions:

@@ -14,8 +14,10 @@
         "@aws-sdk/client-dynamodb": "^3.540.0",
         "@aws-sdk/util-dynamodb": "^3.540.0",
         "@types/aws-lambda": "^8.10.136",
+        "aws-dynamodb-local": "^0.0.11",
         "aws-sdk": "^2.1590.0",
-        "serverless-dynamodb-local": "^0.2.40"
+        "serverless": "^3.38.0",
+        "serverless-dynamodb": "^0.2.51"
     },
     "devDependencies": {
         "@types/node": "^20.12.2",
