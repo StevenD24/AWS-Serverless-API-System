@@ -24,7 +24,8 @@ This project utilizes AWS services, specifically DynamoDB, through AWS Lambda an
 - **@aws-sdk/util-dynamodb** - Provides utility functions for easier DynamoDB data manipulation.
 - **@types/aws-lambda** - Type definitions for AWS Lambda, aiding in function development.
 - **aws-sdk** - Amazon Web Services SDK for JavaScript, allowing AWS service interactions.
-- **serverless-dynamodb-local** - Facilitates local DynamoDB emulation for development and testing.
+- **serverless** - A framework for building and deploying serverless applications.
+- **serverless-dynamodb** - Facilitates local DynamoDB emulation for development and testing.
 
 ### Development Dependencies
 
