@@ -1,7 +1,7 @@
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb"; // aws-sdk V3
 
 
-const client = new DynamoDBClient({
+const dbclient = new DynamoDBClient({
     region: "us-west-1",
     credentials: {
         accessKeyId: "MockAccessKeyId",
@@ -10,4 +10,4 @@ const client = new DynamoDBClient({
     endpoint: "http://localhost:8000"
 });
 
-export default client;
+export default dbclient;
