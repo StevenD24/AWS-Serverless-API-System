@@ -116,3 +116,8 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+
+package:
+  exclude:
+    - .build/**
+    - .dynamodb/**
