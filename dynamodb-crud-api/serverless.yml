@@ -10,6 +10,13 @@ provider:
 
 custom:
   postsTableName: posts-table--${self:provider.stage}
+  dynamodb:
+    stages:
+      - dev
+    start:
+      migrate: true
+  serverless-offline:
+    resourceRoutes: true # HTTP proxy
 
 plugins:
   - serverless-iam-roles-per-function
