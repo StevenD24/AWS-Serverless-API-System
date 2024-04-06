@@ -14,5 +14,5 @@
     "baseUrl": "./",
     "rootDir": "./" // This line added to set the root directory
   },
-  "exclude": ["node_modules", "dist", ".build", ".dynamodb"] // exclude local setup from the cloud
+  "exclude": ["node_modules", "dist"]
 }
