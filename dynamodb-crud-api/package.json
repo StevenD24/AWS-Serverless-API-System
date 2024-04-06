@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "DynamoDB CRUD API using API Gateway and AWS Lambda",
     "scripts": {
+        "prebuild": "rimraf .build",
         "build": "tsc",
         "watch": "tsc-w",
         "test": "echo \"Error: no test specified\" && exit 1"
