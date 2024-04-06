@@ -25,6 +25,12 @@ jobs:
       with:
         node-version: 20.x
 
+    - name: Remove .build and .dynamodb directories from deployment
+      run: |
+        rm -rf ./dynamodb-crud-api/.build
+        rm -rf ./dynamodb-crud-api/.dynamodb
+      working-directory: ./dynamodb-crud-api
+
     - name: Install dependencies
       run: npm install
       working-directory: ./dynamodb-crud-api
