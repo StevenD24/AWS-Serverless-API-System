@@ -46,13 +46,13 @@ This project utilizes AWS services, specifically DynamoDB, through AWS Lambda an
 
 Local testing is done by using serverless offline. The following commands can be run to setup:
 
-### DynamoDB
+#### DynamoDB
 1) cd dynamodb-crud-api
 2) npm i
 3) sls dynamodb install
 4) sls offline start
 
-### s3
+#### Amazon s3
 TBD
 
 ## Serverless Architecture Diagram
