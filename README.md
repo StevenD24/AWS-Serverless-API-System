@@ -48,10 +48,10 @@ Local testing is done by using serverless offline, configurations are included i
 
 ### DynamoDB
 To set up a local testing environment for DynamoDB, follow these steps:
-1) cd dynamodb-crud-api
-2) npm i
-3) sls dynamodb install
-4) sls offline start
+1) `cd dynamodb-crud-api`
+2) `npm i`
+3) `sls dynamodb install`
+4) `sls offline start`
 
 ### Amazon s3
 TBD
