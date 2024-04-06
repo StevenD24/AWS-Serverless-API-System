@@ -7,7 +7,7 @@ const client = new DynamoDBClient({
         accessKeyId: "access_key_id",
         secretAccessKey: "secret_access_key_id",
     },
-    endpoint: "http://localhost:8080"
+    endpoint: "http://localhost:8000"
 });
 
 export default client;

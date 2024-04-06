@@ -10,7 +10,7 @@ provider:
 
 custom:
   postsTableName: posts-table--${self:provider.stage}
-  dynamodb:
+  serverless-dynamodb:
     stages:
       - dev
     start:
@@ -21,7 +21,7 @@ custom:
 plugins:
   - serverless-iam-roles-per-function
   - serverless-plugin-typescript
-  - serverless-dynamodb-local
+  - serverless-dynamodb
   - serverless-offline
 
 functions:
