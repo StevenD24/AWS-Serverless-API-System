@@ -37,9 +37,9 @@ This project utilizes AWS services, specifically DynamoDB, through AWS Lambda an
 
 ## Requirements
 
-- AWS Account
+- [AWS Account](https://aws.amazon.com/console/)
 - AWS CLI configured with Administrator access
-- Node.js (v20.x or later)
+- [Node.js (v20.x or later)](https://nodejs.org/en)
 - Serverless Framework
 
 ## Local Testing
