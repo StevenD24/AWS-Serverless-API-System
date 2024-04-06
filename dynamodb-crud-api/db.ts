@@ -4,8 +4,8 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 const client = new DynamoDBClient({
     region: "us-west-1",
     credentials: {
-        accessKeyId: "access_key_id",
-        secretAccessKey: "secret_access_key_id",
+        accessKeyId: "MockAccessKeyId",
+        secretAccessKey: "MockSecretAccessKey",
     },
     endpoint: "http://localhost:8000"
 });
