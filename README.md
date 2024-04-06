@@ -44,7 +44,7 @@ This project utilizes AWS services, specifically DynamoDB, through AWS Lambda an
 
 ## Local Testing
 
-Local testing is done by using serverless offline, configurations are included in the serverless.yml files.
+Local testing is done by using serverless offline, configurations are included in the `serverless.yml` files.
 
 ### DynamoDB
 To set up a local testing environment for DynamoDB, follow these steps:
