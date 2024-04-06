@@ -44,9 +44,10 @@ This project utilizes AWS services, specifically DynamoDB, through AWS Lambda an
 
 ## Local Testing
 
-Local testing is done by using serverless offline. The following commands can be run to setup:
+Local testing is done by using serverless offline, configurations are included in the serverless.yml files.
 
 ### DynamoDB
+To set up a local testing environment for DynamoDB, follow these steps:
 1) cd dynamodb-crud-api
 2) npm i
 3) sls dynamodb install
