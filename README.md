@@ -6,7 +6,7 @@ This project takes a serverless architecture approach to build a comprehensive A
 
 Designed with scalability, security, and ease of maintenance at its core, it features a GitHub Actions CI/CD pipeline for automating testing, building, and deployment processes, ensuring smooth integration and continuous delivery.
 
-This project harnesses the Serverless Framework integrated with AWS CloudFormation for streamlined deployment and management of serverless applications.
+This project utilizes the Serverless Framework integrated with AWS CloudFormation for streamlined deployment and management of serverless applications.
 
 ## Features
 
