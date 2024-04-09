@@ -8,6 +8,14 @@ provider:
   environment:
     DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
     IS_OFFLINE: ${env:IS_OFFLINE, ''}
+  httpApi:
+    authorizers:
+      auth0:
+        type: jwt
+        identitySource: $request.header.Authorization
+        issuerUrl: "https://dev-dpagdz2fgg7q4pmw.us.auth0.com/"
+        audience:
+          - "https://auth0-aws-jwt-authorizer"
 
 custom:
   postsTableName: posts-table--${self:provider.stage}
@@ -32,10 +40,11 @@ functions:
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
-      - http:
+      - httpApi:
           path: post/{postId}
           method: GET
-          cors: true
+          authorizer:
+            name: auth0
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -50,7 +59,6 @@ functions:
       - http:
           path: post
           method: POST
-          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -65,7 +73,6 @@ functions:
       - http:
           path: post/{postId}
           method: PUT
-          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -80,7 +87,6 @@ functions:
       - http:
           path: post/{postId}
           method: DELETE
-          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -95,7 +101,6 @@ functions:
       - http:
           path: posts
           method: GET
-          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
