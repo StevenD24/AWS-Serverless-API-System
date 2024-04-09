@@ -13,9 +13,9 @@ provider:
       auth0:
         type: jwt
         identitySource: $request.header.Authorization
-        issuerUrl: "https://dev-dpagdz2fgg7q4pmw.us.auth0.com/"
+        issuerUrl: ${{ secrets.AUTH0_ISSUER_BASE_URL }}
         audience:
-          - "https://auth0-aws-jwt-authorizer"
+          - ${{ secrets.AUTH0_AUDIENCE }}
 
 custom:
   postsTableName: posts-table--${self:provider.stage}
