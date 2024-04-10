@@ -58,9 +58,11 @@ functions:
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
-      - http:
-          path: post
+      - httpApi:
+          path: /post
           method: POST
+          authorizer:
+            name: auth0
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -72,9 +74,11 @@ functions:
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
-      - http:
-          path: post/{postId}
+      - httpApi:
+          path: /post/{postId}
           method: PUT
+          authorizer:
+            name: auth0
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -86,9 +90,11 @@ functions:
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
-      - http:
-          path: post/{postId}
+      - httpApi:
+          path: /post/{postId}
           method: DELETE
+          authorizer:
+            name: auth0
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -100,9 +106,11 @@ functions:
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
-      - http:
-          path: posts
+      - httpApi:
+          path: /posts
           method: GET
+          authorizer:
+            name: auth0
     iamRoleStatements:
       - Effect: Allow
         Action:
