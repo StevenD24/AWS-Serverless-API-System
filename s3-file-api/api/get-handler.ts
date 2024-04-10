@@ -1,7 +1,7 @@
 import { Handler, APIGatewayProxyResult } from "aws-lambda";
 
 // CDN URL prefix env var will be set in serverless.yml file
-const CDN_URL_PREFIX = process.env.CDN_URL_PREFIX; 
+const CDN_URL_PREFIX = process.env.AWS_CLOUDFRONT_CDN_URL; 
 
 export const lambdaHandler: Handler = async (event): Promise<APIGatewayProxyResult> => {
     // Default response structure
