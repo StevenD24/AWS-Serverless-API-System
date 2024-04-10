@@ -60,5 +60,6 @@ To set up a local testing environment for DynamoDB, follow these steps:
 TBD
 
 ## Serverless Architecture Diagram
-![Serverless Architecture Diagram](https://github.com/StevenD24/Serverless-DynamoDB-Lambda-API/assets/105379503/d2510d78-92da-4001-8c6d-d19e27c2fc4d)
+![Serverless Architecture Diagram](https://github.com/StevenD24/AWS-Serverless-API-System/assets/105379503/a1cce666-e184-44e9-8e43-caf65067e101)
+
 
