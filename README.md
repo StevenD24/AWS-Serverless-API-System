@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project employs a serverless architecture to create a comprehensive API capable of performing CRUD operations on DynamoDB and integrating with S3 for object storage, using AWS Lambda functions and API Gateway. The API is designed to handle the creation, reading, updating, and deletion of data in DynamoDB, alongside managing file uploads to S3.
+This project leverages a serverless architecture to develop a comprehensive API that performs CRUD operations on DynamoDB and incorporates S3 for object storage, facilitated by AWS Lambda functions and API Gateway. The API enables the creation, reading, updating, and deletion of data within DynamoDB, alongside managing file uploads to S3. With the integration of AWS CloudFront as a CDN for S3 file retrieval, the architecture significantly reduces latency, ensuring faster access to files globally.
 
 In this serverless architecture, Lambda authorizers and Auth0 are used for secure API access, ensuring secure access control and restricting operations to authorized users only.
 
@@ -13,6 +13,7 @@ To streamline development and deployment, the project incorporates a GitHub Acti
 - **CRUD Operations**: Supports create, read, update, and delete operations on DynamoDB.
 - **Serverless Framework**: Utilizes the Serverless Framework for easy deployment and management.
 - **S3 Object Store**: Supports upload, retrieve, and manage files in an S3 bucket directly through the APIs.
+- **AWS CloudFront CDN Integration**: Utilizes AWS CloudFront as a CDN for efficient and low-latency file retrieval from S3, optimizing content delivery globally.
 - **CI/CD with GitHub Actions**: Automated workflows for continuous integration and continuous deployment.
 - **TypeScript with Node.js on AWS**: Manual integration of TypeScript with plugins to allow modern code to run on AWS Lambda.
 - **Auth0 Integration**: Uses Auth0 for secure authentication and authorization with a Bearer JWT.
@@ -44,10 +45,9 @@ This project utilizes AWS services, specifically DynamoDB, through AWS Lambda an
 - [AWS Account](https://aws.amazon.com/console/)
 - [Node.js (v20.x or later)](https://nodejs.org/en)
 - [AWS SDK V3](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
+- [Auth0 Account](https://auth0.com/)
 - AWS CLI configured with Administrator access
 - Serverless Framework
-- [Auth0 Account](https://auth0.com/)
-- [Serverless HTTP API Events](https://www.serverless.com/framework/docs-providers-aws-events-http-api)
 - Secret AWS and Auth0 keys
 
 ## Local Testing
@@ -64,7 +64,14 @@ To set up a local testing environment for DynamoDB, follow these steps:
 ### Amazon s3
 TBD
 
+## Additional Documentation
+- [GitHub Actions](https://docs.github.com/en/actions/quickstart)
+- [Serverless HTTP API Events](https://www.serverless.com/framework/docs-providers-aws-events-http-api)
+- [AWS CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+
 ## Serverless Architecture Diagram
-![Serverless Architecture Diagram](https://github.com/StevenD24/AWS-Serverless-API-System/assets/105379503/a1cce666-e184-44e9-8e43-caf65067e101)
+![Serverless Architecture Project](https://github.com/StevenD24/AWS-Serverless-API-System/assets/105379503/3ff43a7f-ae03-4fd3-85da-0c353b081fab)
+
+
 
 
