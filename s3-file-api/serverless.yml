@@ -80,6 +80,6 @@ resources:
             - Sid: GrantCloudFrontAccessViaOAI
               Effect: Allow
               Principal:
-                AWS: "arn:aws:iam::cloudfront:user/${env:AWS_S3_OAI}"
+                AWS: "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${env:AWS_S3_OAI}"
               Action: "s3:GetObject"
               Resource: "arn:aws:s3:::${self:custom.fileBucketName}/*"
