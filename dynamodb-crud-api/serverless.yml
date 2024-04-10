@@ -14,9 +14,9 @@ provider:
       auth0:
         type: jwt
         identitySource: $request.header.Authorization
-        issuerUrl: ${{ secrets.AUTH0_ISSUER_BASE_URL }}
+        issuerUrl: ${env:AUTH0_ISSUER_BASE_URL}
         audience:
-          - ${{ secrets.AUTH0_AUDIENCE }}
+          - ${env:AUTH0_AUDIENCE}
 
 custom:
   postsTableName: posts-table--${self:provider.stage}
@@ -27,6 +27,7 @@ custom:
       migrate: true
   serverless-offline:
     resourceRoutes: true # HTTP proxy
+    ignoreJWTSignature: true
 
 plugins:
   - serverless-iam-roles-per-function
