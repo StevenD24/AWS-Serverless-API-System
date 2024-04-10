@@ -7,7 +7,7 @@ provider:
   region: us-west-1
   environment:
     FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileBucketName}
-    AWS_CLOUDFRONT_CDN_URL: ${env:AWS_CLOUDFRONT_CDN_URL}
+    AWS_CLOUDFRONT_CDN_URL: https://dw87g9hh8ln2b.cloudfront.net
 
 custom:
   fileBucketName: s3-file-bucket--${self:provider.stage}
