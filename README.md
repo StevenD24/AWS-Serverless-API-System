@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project takes a serverless architecture approach to build a comprehensive API that not only performs CRUD operations on DynamoDB but also integrates with S3 for object storage capabilities. Leveraging AWS Lambda functions and API Gateway, the API facilitates creating, reading, updating, and deleting posts stored in a DynamoDB table, alongside managing file uploads to S3. 
+This project employs a serverless architecture to create a comprehensive API capable of performing CRUD operations on DynamoDB and integrating with S3 for object storage, using AWS Lambda functions and API Gateway. The API is designed to handle the creation, reading, updating, and deletion of data in DynamoDB, alongside managing file uploads to S3.
 
-Designed with scalability, security, and ease of maintenance at its core, it features a GitHub Actions CI/CD pipeline for automating testing, building, and deployment processes, ensuring smooth integration and continuous delivery.
+In this serverless architecture, Lambda authorizers and Auth0 are used for secure API access, ensuring secure access control and restricting operations to authorized users only.
 
-This project utilizes the Serverless Framework integrated with AWS CloudFormation for streamlined deployment and management of serverless applications.
+To streamline development and deployment, the project incorporates a GitHub Actions CI/CD pipeline, automating testing, building, and deployment processes. It utilizes the Serverless Framework alongside AWS CloudFormation, simplifying the deployment and management of serverless applications and ensuring efficient, continuous delivery.
 
 ## Features
 
@@ -15,6 +15,8 @@ This project utilizes the Serverless Framework integrated with AWS CloudFormatio
 - **S3 Object Store**: Supports upload, retrieve, and manage files in an S3 bucket directly through the APIs.
 - **CI/CD with GitHub Actions**: Automated workflows for continuous integration and continuous deployment.
 - **TypeScript with Node.js on AWS**: Manual integration of TypeScript with plugins to allow modern code to run on AWS Lambda.
+- **Auth0 Integration**: Uses Auth0 for secure authentication and authorization with a Bearer JWT.
+- **Lambda Authorizer**: Implements a Lambda authorizer for API Gateway to manage access control.
 
 ## Dependencies Overview
 
@@ -44,6 +46,9 @@ This project utilizes AWS services, specifically DynamoDB, through AWS Lambda an
 - [AWS SDK V3](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
 - AWS CLI configured with Administrator access
 - Serverless Framework
+- [Auth0 Account](https://auth0.com/)
+- [Serverless HTTP API Events](https://www.serverless.com/framework/docs-providers-aws-events-http-api)
+- Secret AWS and Auth0 keys
 
 ## Local Testing
 
