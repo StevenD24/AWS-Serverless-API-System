@@ -20,7 +20,7 @@ export const lambdaHandler: Handler = async (event: APIGatewayProxyEvent): Promi
             Key: decodeURIComponent(event.pathParameters.fileKey),
         }
         const data = await s3.getObject(params).promise();
-        response.body = JSON.stringify({ message: "Successfull retrieved file from S3.", data });
+        response.body = JSON.stringify({ message: "Successfully retrieved file from S3.", data });
 
     } catch (e: any) {
         console.error(e);
