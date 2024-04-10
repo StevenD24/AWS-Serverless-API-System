@@ -9,6 +9,7 @@ provider:
     DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
     IS_OFFLINE: ${env:IS_OFFLINE, ''}
   httpApi:
+    cors: true
     authorizers:
       auth0:
         type: jwt
@@ -41,9 +42,8 @@ functions:
     timeout: 5 # seconds
     events:
       - httpApi:
-          path: post/{postId}
+          path: /post/{postId}
           method: GET
-          cors: true
           authorizer:
             name: auth0
     iamRoleStatements:
@@ -60,7 +60,6 @@ functions:
       - http:
           path: post
           method: POST
-          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -75,7 +74,6 @@ functions:
       - http:
           path: post/{postId}
           method: PUT
-          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -90,7 +88,6 @@ functions:
       - http:
           path: post/{postId}
           method: DELETE
-          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -105,7 +102,6 @@ functions:
       - http:
           path: posts
           method: GET
-          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
