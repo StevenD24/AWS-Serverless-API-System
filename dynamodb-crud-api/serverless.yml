@@ -6,6 +6,8 @@ provider:
   stage: dev
   region: us-west-1
   environment:
+    RestApiId:  
+      Ref: HttpApi
     DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
     IS_OFFLINE: ${env:IS_OFFLINE, ''}
   httpApi:
