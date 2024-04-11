@@ -25,6 +25,9 @@ custom:
       - dev
     start:
       migrate: true
+  associateWaf:
+    name: APIGatewayWAF
+    version: V2
   serverless-offline:
     resourceRoutes: true # HTTP proxy
     ignoreJWTSignature: true
@@ -32,6 +35,7 @@ custom:
 plugins:
   - serverless-iam-roles-per-function
   - serverless-plugin-typescript
+  - serverless-associate-waf
   - serverless-dynamodb
   - serverless-offline
 
