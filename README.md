@@ -70,7 +70,8 @@ TBD
 - [AWS CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
 
 ## Serverless Architecture Diagram
-![V2 Serverless Arch  Project drawio](https://github.com/StevenD24/AWS-Serverless-API-System/assets/105379503/142f1c18-aee5-4223-a300-2be5c73b5ae8)
+![V2 Serverless Arch  Project drawio](https://github.com/StevenD24/AWS-Serverless-API-System/assets/105379503/621c8a26-cc96-49bd-8408-ec9786d06fd6)
+
 
 
 
